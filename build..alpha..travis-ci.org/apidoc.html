@@ -1,0 +1,1040 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/rt2zz/redux-persist"
+
+    >redux-persist (v4.6.0)</a>
+</h1>
+<h4>persist and rehydrate redux stores</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist">module redux-persist</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.autoRehydrate">
+            function <span class="apidocSignatureSpan">redux-persist.</span>autoRehydrate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.createPersistor">
+            function <span class="apidocSignatureSpan">redux-persist.</span>createPersistor
+            <span class="apidocSignatureSpan">(store, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.createTransform">
+            function <span class="apidocSignatureSpan">redux-persist.</span>createTransform
+            <span class="apidocSignatureSpan">(inbound, outbound)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.getStoredState">
+            function <span class="apidocSignatureSpan">redux-persist.</span>getStoredState
+            <span class="apidocSignatureSpan">(config, onComplete)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.persistStore">
+            function <span class="apidocSignatureSpan">redux-persist.</span>persistStore
+            <span class="apidocSignatureSpan">(store)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.purgeStoredState">
+            function <span class="apidocSignatureSpan">redux-persist.</span>purgeStoredState
+            <span class="apidocSignatureSpan">(config, keys)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">redux-persist.</span>storages</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.autoRehydrate">module redux-persist.autoRehydrate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.autoRehydrate.default">
+            function <span class="apidocSignatureSpan">redux-persist.autoRehydrate.</span>default
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.createPersistor">module redux-persist.createPersistor</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.createPersistor.default">
+            function <span class="apidocSignatureSpan">redux-persist.createPersistor.</span>default
+            <span class="apidocSignatureSpan">(store, config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.createTransform">module redux-persist.createTransform</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.createTransform.default">
+            function <span class="apidocSignatureSpan">redux-persist.createTransform.</span>default
+            <span class="apidocSignatureSpan">(inbound, outbound)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.getStoredState">module redux-persist.getStoredState</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.getStoredState.default">
+            function <span class="apidocSignatureSpan">redux-persist.getStoredState.</span>default
+            <span class="apidocSignatureSpan">(config, onComplete)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.persistStore">module redux-persist.persistStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.persistStore.default">
+            function <span class="apidocSignatureSpan">redux-persist.persistStore.</span>default
+            <span class="apidocSignatureSpan">(store)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist.purgeStoredState">module redux-persist.purgeStoredState</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redux-persist.purgeStoredState.default">
+            function <span class="apidocSignatureSpan">redux-persist.purgeStoredState.</span>default
+            <span class="apidocSignatureSpan">(config, keys)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist" id="apidoc.module.redux-persist">module redux-persist</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.autoRehydrate" id="apidoc.element.redux-persist.autoRehydrate">
+        function <span class="apidocSignatureSpan">redux-persist.</span>autoRehydrate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function autoRehydrate() {
+  var config = arguments.length &#x3e; 0 &#x26;&#x26; arguments[0] !== undefined ? arguments[0] : {};
+
+  var stateReconciler = config.stateReconciler || defaultStateReconciler;
+
+  return function (next) {
+    return function (reducer, initialState, enhancer) {
+      var store = next(liftReducer(reducer), initialState, enhancer);
+      return _extends({}, store, {
+        replaceReducer: function replaceReducer(reducer) {
+          return store.replaceReducer(liftReducer(reducer));
+        }
+      });
+    };
+  };
+
+  function liftReducer(reducer) {
+    var rehydrated = false;
+    var preRehydrateActions = [];
+    return function (state, action) {
+      if (action.type !== _constants.REHYDRATE) {
+        if (config.log &#x26;&#x26; !rehydrated) preRehydrateActions.push(action); // store pre-rehydrate actions for debugging
+        return reducer(state, action);
+      } else {
+        if (config.log &#x26;&#x26; !rehydrated) logPreRehydrate(preRehydrateActions);
+        rehydrated = true;
+
+        var inboundState = action.payload;
+        var reducedState = reducer(state, action);
+
+        return stateReconciler(state, inboundState, reducedState, config.log);
+      }
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.createPersistor" id="apidoc.element.redux-persist.createPersistor">
+        function <span class="apidocSignatureSpan">redux-persist.</span>createPersistor
+        <span class="apidocSignatureSpan">(store, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPersistor(store, config) {
+  // defaults
+  var serializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultSerializer;
+  var deserializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultDeserializer;
+  var blacklist = config.blacklist || [];
+  var whitelist = config.whitelist || false;
+  var transforms = config.transforms || [];
+  var debounce = config.debounce || false;
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // pluggable state shape (e.g. immutablejs)
+  var stateInit = config._stateInit || {};
+  var stateIterator = config._stateIterator || defaultStateIterator;
+  var stateGetter = config._stateGetter || defaultStateGetter;
+  var stateSetter = config._stateSetter || defaultStateSetter;
+
+  // storage with keys -&#x3e; getAllKeys for localForage support
+  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
+  if (storage.keys &#x26;&#x26; !storage.getAllKeys) {
+    storage.getAllKeys = storage.keys;
+  }
+
+  // initialize stateful values
+  var lastState = stateInit;
+  var paused = false;
+  var storesToProcess = [];
+  var timeIterator = null;
+
+  store.subscribe(function () {
+    if (paused) return;
+
+    var state = store.getState();
+
+    stateIterator(state, function (subState, key) {
+      if (!passWhitelistBlacklist(key)) return;
+      if (stateGetter(lastState, key) === stateGetter(state, key)) return;
+      if (storesToProcess.indexOf(key) !== -1) return;
+      storesToProcess.push(key);
+    });
+
+    // time iterator (read: debounce)
+    if (timeIterator === null) {
+      timeIterator = setInterval(function () {
+        if (storesToProcess.length === 0) {
+          clearInterval(timeIterator);
+          timeIterator = null;
+          return;
+        }
+
+        var key = storesToProcess[0];
+        var storageKey = createStorageKey(key);
+        var endState = transforms.reduce(function (subState, transformer) {
+          return transformer.in(subState, key);
+        }, stateGetter(store.getState(), key));
+        if (typeof endState !== &#x27;undefined&#x27;) storage.setItem(storageKey, serializer(endState), warnIfSetError(key));
+        storesToProcess.shift();
+      }, debounce);
+    }
+
+    lastState = state;
+  });
+
+  function passWhitelistBlacklist(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (blacklist.indexOf(key) !== -1) return false;
+    return true;
+  }
+
+  function adhocRehydrate(incoming) {
+    var options = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+
+    var state = {};
+    if (options.serial) {
+      stateIterator(incoming, function (subState, key) {
+        try {
+          var data = deserializer(subState);
+          var value = transforms.reduceRight(function (interState, transformer) {
+            return transformer.out(interState, key);
+          }, data);
+          state = stateSetter(state, key, value);
+        } catch (err) {
+          if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;Error rehydrating data for key &#x22;&#x27; + key + &#x27;&#x22;&#x27;, subState, err);
+        }
+      });
+    } else state = incoming;
+
+    store.dispatch(rehydrateAction(state));
+    return state;
+  }
+
+  function createStorageKey(key) {
+    return &#x27;&#x27; + keyPrefix + key;
+  }
+
+  // return `persistor`
+  return {
+    rehydrate: adhocRehydrate,
+    pause: function pause() {
+      paused = true;
+    },
+    resume: function resume() {
+      paused = false;
+    },
+    purge: function purge(keys) {
+      return (0, _purgeStoredState2.default)({ storage: storage, keyPrefix: keyPrefix }, keys);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.createTransform" id="apidoc.element.redux-persist.createTransform">
+        function <span class="apidocSignatureSpan">redux-persist.</span>createTransform
+        <span class="apidocSignatureSpan">(inbound, outbound)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createTransform(inbound, outbound) {
+  var config = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : {};
+
+  var whitelist = config.whitelist || null;
+  var blacklist = config.blacklist || null;
+
+  function whitelistBlacklistCheck(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return true;
+    if (blacklist &#x26;&#x26; blacklist.indexOf(key) !== -1) return true;
+    return false;
+  }
+
+  return {
+    in: function _in(state, key) {
+      return !whitelistBlacklistCheck(key) &#x26;&#x26; inbound ? inbound(state, key) : state;
+    },
+    out: function out(state, key) {
+      return !whitelistBlacklistCheck(key) &#x26;&#x26; outbound ? outbound(state, key) : state;
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.getStoredState" id="apidoc.element.redux-persist.getStoredState">
+        function <span class="apidocSignatureSpan">redux-persist.</span>getStoredState
+        <span class="apidocSignatureSpan">(config, onComplete)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getStoredState(config, onComplete) {
+  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
+  var deserializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultDeserializer;
+  var blacklist = config.blacklist || [];
+  var whitelist = config.whitelist || false;
+  var transforms = config.transforms || [];
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // fallback getAllKeys to `keys` if present (LocalForage compatability)
+  if (storage.keys &#x26;&#x26; !storage.getAllKeys) storage = _extends({}, storage, { getAllKeys: storage.keys });
+
+  var restoredState = {};
+  var completionCount = 0;
+
+  storage.getAllKeys(function (err, allKeys) {
+    if (err) {
+      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error in storage.getAllKeys&#x27;);
+      complete(err);
+    }
+
+    var persistKeys = allKeys.filter(function (key) {
+      return key.indexOf(keyPrefix) === 0;
+    }).map(function (key) {
+      return key.slice(keyPrefix.length);
+    });
+    var keysToRestore = persistKeys.filter(passWhitelistBlacklist);
+
+    var restoreCount = keysToRestore.length;
+    if (restoreCount === 0) complete(null, restoredState);
+    keysToRestore.forEach(function (key) {
+      storage.getItem(createStorageKey(key), function (err, serialized) {
+        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key
+:&#x27;, key, err);else restoredState[key] = rehydrate(key, serialized);
+        completionCount += 1;
+        if (completionCount === restoreCount) complete(null, restoredState);
+      });
+    });
+  });
+
+  function rehydrate(key, serialized) {
+    var state = null;
+
+    try {
+      var data = deserializer(serialized);
+      state = transforms.reduceRight(function (subState, transformer) {
+        return transformer.out(subState, key);
+      }, data);
+    } catch (err) {
+      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key:&#x27;, key
+, err);
+    }
+
+    return state;
+  }
+
+  function complete(err, restoredState) {
+    onComplete(err, restoredState);
+  }
+
+  function passWhitelistBlacklist(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (blacklist.indexOf(key) !== -1) return false;
+    return true;
+  }
+
+  function createStorageKey(key) {
+    return &#x27;&#x27; + keyPrefix + key;
+  }
+
+  if (typeof onComplete !== &#x27;function&#x27; &#x26;&#x26; !!Promise) {
+    return new Promise(function (resolve, reject) {
+      onComplete = function onComplete(err, restoredState) {
+        if (err) reject(err);else resolve(restoredState);
+      };
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.persistStore" id="apidoc.element.redux-persist.persistStore">
+        function <span class="apidocSignatureSpan">redux-persist.</span>persistStore
+        <span class="apidocSignatureSpan">(store)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function persistStore(store) {
+  var config = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+  var onComplete = arguments[2];
+
+  // defaults
+  // @TODO remove shouldRestore
+  var shouldRestore = !config.skipRestore;
+  if (process.env.NODE_ENV !== &#x27;production&#x27; &#x26;&#x26; config.skipRestore) console.warn(&#x27;redux-persist: config.skipRestore has been deprecated
+. If you want to skip restoration use `createPersistor` instead&#x27;);
+
+  var purgeKeys = null;
+
+  // create and pause persistor
+  var persistor = (0, _createPersistor2.default)(store, config);
+  persistor.pause();
+
+  // restore
+  if (shouldRestore) {
+    genericSetImmediate(function () {
+      (0, _getStoredState2.default)(config, function (err, restoredState) {
+        // do not persist state for purgeKeys
+        if (purgeKeys) {
+          if (purgeKeys === &#x27;*&#x27;) restoredState = {};else purgeKeys.forEach(function (key) {
+            return delete restoredState[key];
+          });
+        }
+
+        store.dispatch(rehydrateAction(restoredState, err));
+        complete(err, restoredState);
+      });
+    });
+  } else genericSetImmediate(complete);
+
+  function complete(err, restoredState) {
+    persistor.resume();
+    onComplete &#x26;&#x26; onComplete(err, restoredState);
+  }
+
+  return _extends({}, persistor, {
+    purge: function purge(keys) {
+      purgeKeys = keys || &#x27;*&#x27;;
+      return persistor.purge(keys);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.purgeStoredState" id="apidoc.element.redux-persist.purgeStoredState">
+        function <span class="apidocSignatureSpan">redux-persist.</span>purgeStoredState
+        <span class="apidocSignatureSpan">(config, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function purgeStoredState(config, keys) {
+  var storage = config.storage;
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // basic validation
+  if (Array.isArray(config)) throw new Error(&#x27;redux-persist: purgeStoredState requires config as a first argument (found array).
+An array of keys is the optional second argument.&#x27;);
+  if (!storage) throw new Error(&#x27;redux-persist: config.storage required in purgeStoredState&#x27;);
+
+  if (typeof keys === &#x27;undefined&#x27;) {
+    // if keys is not defined, purge all keys
+    return new Promise(function (resolve, reject) {
+      storage.getAllKeys(function (err, allKeys) {
+        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) {
+          console.warn(&#x27;redux-persist: error during purgeStoredState in storage.getAllKeys&#x27;);
+          reject(err);
+        } else {
+          resolve(purgeStoredState(config, allKeys.filter(function (key) {
+            return key.indexOf(keyPrefix) === 0;
+          }).map(function (key) {
+            return key.slice(keyPrefix.length);
+          })));
+        }
+      });
+    });
+  } else {
+    // otherwise purge specified keys
+    return Promise.all(keys.map(function (key) {
+      return storage.removeItem(&#x27;&#x27; + keyPrefix + key, warnIfRemoveError(key));
+    }));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.autoRehydrate" id="apidoc.module.redux-persist.autoRehydrate">module redux-persist.autoRehydrate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.autoRehydrate.default" id="apidoc.element.redux-persist.autoRehydrate.default">
+        function <span class="apidocSignatureSpan">redux-persist.autoRehydrate.</span>default
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function autoRehydrate() {
+  var config = arguments.length &#x3e; 0 &#x26;&#x26; arguments[0] !== undefined ? arguments[0] : {};
+
+  var stateReconciler = config.stateReconciler || defaultStateReconciler;
+
+  return function (next) {
+    return function (reducer, initialState, enhancer) {
+      var store = next(liftReducer(reducer), initialState, enhancer);
+      return _extends({}, store, {
+        replaceReducer: function replaceReducer(reducer) {
+          return store.replaceReducer(liftReducer(reducer));
+        }
+      });
+    };
+  };
+
+  function liftReducer(reducer) {
+    var rehydrated = false;
+    var preRehydrateActions = [];
+    return function (state, action) {
+      if (action.type !== _constants.REHYDRATE) {
+        if (config.log &#x26;&#x26; !rehydrated) preRehydrateActions.push(action); // store pre-rehydrate actions for debugging
+        return reducer(state, action);
+      } else {
+        if (config.log &#x26;&#x26; !rehydrated) logPreRehydrate(preRehydrateActions);
+        rehydrated = true;
+
+        var inboundState = action.payload;
+        var reducedState = reducer(state, action);
+
+        return stateReconciler(state, inboundState, reducedState, config.log);
+      }
+    };
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.createPersistor" id="apidoc.module.redux-persist.createPersistor">module redux-persist.createPersistor</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.createPersistor.default" id="apidoc.element.redux-persist.createPersistor.default">
+        function <span class="apidocSignatureSpan">redux-persist.createPersistor.</span>default
+        <span class="apidocSignatureSpan">(store, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPersistor(store, config) {
+  // defaults
+  var serializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultSerializer;
+  var deserializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultDeserializer;
+  var blacklist = config.blacklist || [];
+  var whitelist = config.whitelist || false;
+  var transforms = config.transforms || [];
+  var debounce = config.debounce || false;
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // pluggable state shape (e.g. immutablejs)
+  var stateInit = config._stateInit || {};
+  var stateIterator = config._stateIterator || defaultStateIterator;
+  var stateGetter = config._stateGetter || defaultStateGetter;
+  var stateSetter = config._stateSetter || defaultStateSetter;
+
+  // storage with keys -&#x3e; getAllKeys for localForage support
+  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
+  if (storage.keys &#x26;&#x26; !storage.getAllKeys) {
+    storage.getAllKeys = storage.keys;
+  }
+
+  // initialize stateful values
+  var lastState = stateInit;
+  var paused = false;
+  var storesToProcess = [];
+  var timeIterator = null;
+
+  store.subscribe(function () {
+    if (paused) return;
+
+    var state = store.getState();
+
+    stateIterator(state, function (subState, key) {
+      if (!passWhitelistBlacklist(key)) return;
+      if (stateGetter(lastState, key) === stateGetter(state, key)) return;
+      if (storesToProcess.indexOf(key) !== -1) return;
+      storesToProcess.push(key);
+    });
+
+    // time iterator (read: debounce)
+    if (timeIterator === null) {
+      timeIterator = setInterval(function () {
+        if (storesToProcess.length === 0) {
+          clearInterval(timeIterator);
+          timeIterator = null;
+          return;
+        }
+
+        var key = storesToProcess[0];
+        var storageKey = createStorageKey(key);
+        var endState = transforms.reduce(function (subState, transformer) {
+          return transformer.in(subState, key);
+        }, stateGetter(store.getState(), key));
+        if (typeof endState !== &#x27;undefined&#x27;) storage.setItem(storageKey, serializer(endState), warnIfSetError(key));
+        storesToProcess.shift();
+      }, debounce);
+    }
+
+    lastState = state;
+  });
+
+  function passWhitelistBlacklist(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (blacklist.indexOf(key) !== -1) return false;
+    return true;
+  }
+
+  function adhocRehydrate(incoming) {
+    var options = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+
+    var state = {};
+    if (options.serial) {
+      stateIterator(incoming, function (subState, key) {
+        try {
+          var data = deserializer(subState);
+          var value = transforms.reduceRight(function (interState, transformer) {
+            return transformer.out(interState, key);
+          }, data);
+          state = stateSetter(state, key, value);
+        } catch (err) {
+          if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;Error rehydrating data for key &#x22;&#x27; + key + &#x27;&#x22;&#x27;, subState, err);
+        }
+      });
+    } else state = incoming;
+
+    store.dispatch(rehydrateAction(state));
+    return state;
+  }
+
+  function createStorageKey(key) {
+    return &#x27;&#x27; + keyPrefix + key;
+  }
+
+  // return `persistor`
+  return {
+    rehydrate: adhocRehydrate,
+    pause: function pause() {
+      paused = true;
+    },
+    resume: function resume() {
+      paused = false;
+    },
+    purge: function purge(keys) {
+      return (0, _purgeStoredState2.default)({ storage: storage, keyPrefix: keyPrefix }, keys);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.createTransform" id="apidoc.module.redux-persist.createTransform">module redux-persist.createTransform</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.createTransform.default" id="apidoc.element.redux-persist.createTransform.default">
+        function <span class="apidocSignatureSpan">redux-persist.createTransform.</span>default
+        <span class="apidocSignatureSpan">(inbound, outbound)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createTransform(inbound, outbound) {
+  var config = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : {};
+
+  var whitelist = config.whitelist || null;
+  var blacklist = config.blacklist || null;
+
+  function whitelistBlacklistCheck(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return true;
+    if (blacklist &#x26;&#x26; blacklist.indexOf(key) !== -1) return true;
+    return false;
+  }
+
+  return {
+    in: function _in(state, key) {
+      return !whitelistBlacklistCheck(key) &#x26;&#x26; inbound ? inbound(state, key) : state;
+    },
+    out: function out(state, key) {
+      return !whitelistBlacklistCheck(key) &#x26;&#x26; outbound ? outbound(state, key) : state;
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.getStoredState" id="apidoc.module.redux-persist.getStoredState">module redux-persist.getStoredState</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.getStoredState.default" id="apidoc.element.redux-persist.getStoredState.default">
+        function <span class="apidocSignatureSpan">redux-persist.getStoredState.</span>default
+        <span class="apidocSignatureSpan">(config, onComplete)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getStoredState(config, onComplete) {
+  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
+  var deserializer = config.serialize === false ? function (data) {
+    return data;
+  } : defaultDeserializer;
+  var blacklist = config.blacklist || [];
+  var whitelist = config.whitelist || false;
+  var transforms = config.transforms || [];
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // fallback getAllKeys to `keys` if present (LocalForage compatability)
+  if (storage.keys &#x26;&#x26; !storage.getAllKeys) storage = _extends({}, storage, { getAllKeys: storage.keys });
+
+  var restoredState = {};
+  var completionCount = 0;
+
+  storage.getAllKeys(function (err, allKeys) {
+    if (err) {
+      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error in storage.getAllKeys&#x27;);
+      complete(err);
+    }
+
+    var persistKeys = allKeys.filter(function (key) {
+      return key.indexOf(keyPrefix) === 0;
+    }).map(function (key) {
+      return key.slice(keyPrefix.length);
+    });
+    var keysToRestore = persistKeys.filter(passWhitelistBlacklist);
+
+    var restoreCount = keysToRestore.length;
+    if (restoreCount === 0) complete(null, restoredState);
+    keysToRestore.forEach(function (key) {
+      storage.getItem(createStorageKey(key), function (err, serialized) {
+        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key
+:&#x27;, key, err);else restoredState[key] = rehydrate(key, serialized);
+        completionCount += 1;
+        if (completionCount === restoreCount) complete(null, restoredState);
+      });
+    });
+  });
+
+  function rehydrate(key, serialized) {
+    var state = null;
+
+    try {
+      var data = deserializer(serialized);
+      state = transforms.reduceRight(function (subState, transformer) {
+        return transformer.out(subState, key);
+      }, data);
+    } catch (err) {
+      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key:&#x27;, key
+, err);
+    }
+
+    return state;
+  }
+
+  function complete(err, restoredState) {
+    onComplete(err, restoredState);
+  }
+
+  function passWhitelistBlacklist(key) {
+    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (blacklist.indexOf(key) !== -1) return false;
+    return true;
+  }
+
+  function createStorageKey(key) {
+    return &#x27;&#x27; + keyPrefix + key;
+  }
+
+  if (typeof onComplete !== &#x27;function&#x27; &#x26;&#x26; !!Promise) {
+    return new Promise(function (resolve, reject) {
+      onComplete = function onComplete(err, restoredState) {
+        if (err) reject(err);else resolve(restoredState);
+      };
+    });
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.persistStore" id="apidoc.module.redux-persist.persistStore">module redux-persist.persistStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.persistStore.default" id="apidoc.element.redux-persist.persistStore.default">
+        function <span class="apidocSignatureSpan">redux-persist.persistStore.</span>default
+        <span class="apidocSignatureSpan">(store)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function persistStore(store) {
+  var config = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+  var onComplete = arguments[2];
+
+  // defaults
+  // @TODO remove shouldRestore
+  var shouldRestore = !config.skipRestore;
+  if (process.env.NODE_ENV !== &#x27;production&#x27; &#x26;&#x26; config.skipRestore) console.warn(&#x27;redux-persist: config.skipRestore has been deprecated
+. If you want to skip restoration use `createPersistor` instead&#x27;);
+
+  var purgeKeys = null;
+
+  // create and pause persistor
+  var persistor = (0, _createPersistor2.default)(store, config);
+  persistor.pause();
+
+  // restore
+  if (shouldRestore) {
+    genericSetImmediate(function () {
+      (0, _getStoredState2.default)(config, function (err, restoredState) {
+        // do not persist state for purgeKeys
+        if (purgeKeys) {
+          if (purgeKeys === &#x27;*&#x27;) restoredState = {};else purgeKeys.forEach(function (key) {
+            return delete restoredState[key];
+          });
+        }
+
+        store.dispatch(rehydrateAction(restoredState, err));
+        complete(err, restoredState);
+      });
+    });
+  } else genericSetImmediate(complete);
+
+  function complete(err, restoredState) {
+    persistor.resume();
+    onComplete &#x26;&#x26; onComplete(err, restoredState);
+  }
+
+  return _extends({}, persistor, {
+    purge: function purge(keys) {
+      purgeKeys = keys || &#x27;*&#x27;;
+      return persistor.purge(keys);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redux-persist.purgeStoredState" id="apidoc.module.redux-persist.purgeStoredState">module redux-persist.purgeStoredState</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redux-persist.purgeStoredState.default" id="apidoc.element.redux-persist.purgeStoredState.default">
+        function <span class="apidocSignatureSpan">redux-persist.purgeStoredState.</span>default
+        <span class="apidocSignatureSpan">(config, keys)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function purgeStoredState(config, keys) {
+  var storage = config.storage;
+  var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
+
+  // basic validation
+  if (Array.isArray(config)) throw new Error(&#x27;redux-persist: purgeStoredState requires config as a first argument (found array).
+An array of keys is the optional second argument.&#x27;);
+  if (!storage) throw new Error(&#x27;redux-persist: config.storage required in purgeStoredState&#x27;);
+
+  if (typeof keys === &#x27;undefined&#x27;) {
+    // if keys is not defined, purge all keys
+    return new Promise(function (resolve, reject) {
+      storage.getAllKeys(function (err, allKeys) {
+        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) {
+          console.warn(&#x27;redux-persist: error during purgeStoredState in storage.getAllKeys&#x27;);
+          reject(err);
+        } else {
+          resolve(purgeStoredState(config, allKeys.filter(function (key) {
+            return key.indexOf(keyPrefix) === 0;
+          }).map(function (key) {
+            return key.slice(keyPrefix.length);
+          })));
+        }
+      });
+    });
+  } else {
+    // otherwise purge specified keys
+    return Promise.all(keys.map(function (key) {
+      return storage.removeItem(&#x27;&#x27; + keyPrefix + key, warnIfRemoveError(key));
+    }));
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
