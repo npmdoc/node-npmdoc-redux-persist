@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/rt2zz/redux-persist"
-
-    >redux-persist (v4.6.0)</a>
+    <a href="https://github.com/rt2zz/redux-persist">redux-persist (v4.6.0)</a>
 </h1>
 <h4>persist and rehydrate redux stores</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.redux-persist">module redux-persist</a><ol>
 
@@ -137,7 +130,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function autoRehydrate() {
-  var config = arguments.length &#x3e; 0 &#x26;&#x26; arguments[0] !== undefined ? arguments[0] : {};
+  var config = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : {};
 
   var stateReconciler = config.stateReconciler || defaultStateReconciler;
 
@@ -157,10 +150,10 @@
     var preRehydrateActions = [];
     return function (state, action) {
       if (action.type !== _constants.REHYDRATE) {
-        if (config.log &#x26;&#x26; !rehydrated) preRehydrateActions.push(action); // store pre-rehydrate actions for debugging
+        if (config.log &amp;&amp; !rehydrated) preRehydrateActions.push(action); // store pre-rehydrate actions for debugging
         return reducer(state, action);
       } else {
-        if (config.log &#x26;&#x26; !rehydrated) logPreRehydrate(preRehydrateActions);
+        if (config.log &amp;&amp; !rehydrated) logPreRehydrate(preRehydrateActions);
         rehydrated = true;
 
         var inboundState = action.payload;
@@ -203,9 +196,9 @@
   var stateGetter = config._stateGetter || defaultStateGetter;
   var stateSetter = config._stateSetter || defaultStateSetter;
 
-  // storage with keys -&#x3e; getAllKeys for localForage support
-  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
-  if (storage.keys &#x26;&#x26; !storage.getAllKeys) {
+  // storage with keys -&gt; getAllKeys for localForage support
+  var storage = config.storage || (0, _asyncLocalStorage2.default)('local');
+  if (storage.keys &amp;&amp; !storage.getAllKeys) {
     storage.getAllKeys = storage.keys;
   }
 
@@ -241,7 +234,7 @@
         var endState = transforms.reduce(function (subState, transformer) {
           return transformer.in(subState, key);
         }, stateGetter(store.getState(), key));
-        if (typeof endState !== &#x27;undefined&#x27;) storage.setItem(storageKey, serializer(endState), warnIfSetError(key));
+        if (typeof endState !== 'undefined') storage.setItem(storageKey, serializer(endState), warnIfSetError(key));
         storesToProcess.shift();
       }, debounce);
     }
@@ -250,13 +243,13 @@
   });
 
   function passWhitelistBlacklist(key) {
-    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (whitelist &amp;&amp; whitelist.indexOf(key) === -1) return false;
     if (blacklist.indexOf(key) !== -1) return false;
     return true;
   }
 
   function adhocRehydrate(incoming) {
-    var options = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+    var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
 
     var state = {};
     if (options.serial) {
@@ -268,7 +261,7 @@
           }, data);
           state = stateSetter(state, key, value);
         } catch (err) {
-          if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;Error rehydrating data for key &#x22;&#x27; + key + &#x27;&#x22;&#x27;, subState, err);
+          if (process.env.NODE_ENV !== 'production') console.warn('Error rehydrating data for key "' + key + '"', subState, err);
         }
       });
     } else state = incoming;
@@ -278,7 +271,7 @@
   }
 
   function createStorageKey(key) {
-    return &#x27;&#x27; + keyPrefix + key;
+    return '' + keyPrefix + key;
   }
 
   // return `persistor`
@@ -308,23 +301,23 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function createTransform(inbound, outbound) {
-  var config = arguments.length &#x3e; 2 &#x26;&#x26; arguments[2] !== undefined ? arguments[2] : {};
+  var config = arguments.length &gt; 2 &amp;&amp; arguments[2] !== undefined ? arguments[2] : {};
 
   var whitelist = config.whitelist || null;
   var blacklist = config.blacklist || null;
 
   function whitelistBlacklistCheck(key) {
-    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return true;
-    if (blacklist &#x26;&#x26; blacklist.indexOf(key) !== -1) return true;
+    if (whitelist &amp;&amp; whitelist.indexOf(key) === -1) return true;
+    if (blacklist &amp;&amp; blacklist.indexOf(key) !== -1) return true;
     return false;
   }
 
   return {
     in: function _in(state, key) {
-      return !whitelistBlacklistCheck(key) &#x26;&#x26; inbound ? inbound(state, key) : state;
+      return !whitelistBlacklistCheck(key) &amp;&amp; inbound ? inbound(state, key) : state;
     },
     out: function out(state, key) {
-      return !whitelistBlacklistCheck(key) &#x26;&#x26; outbound ? outbound(state, key) : state;
+      return !whitelistBlacklistCheck(key) &amp;&amp; outbound ? outbound(state, key) : state;
     }
   };
 }</pre></li>
@@ -341,7 +334,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function getStoredState(config, onComplete) {
-  var storage = config.storage || (0, _asyncLocalStorage2.default)(&#x27;local&#x27;);
+  var storage = config.storage || (0, _asyncLocalStorage2.default)('local');
   var deserializer = config.serialize === false ? function (data) {
     return data;
   } : defaultDeserializer;
@@ -351,14 +344,14 @@
   var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
 
   // fallback getAllKeys to `keys` if present (LocalForage compatability)
-  if (storage.keys &#x26;&#x26; !storage.getAllKeys) storage = _extends({}, storage, { getAllKeys: storage.keys });
+  if (storage.keys &amp;&amp; !storage.getAllKeys) storage = _extends({}, storage, { getAllKeys: storage.keys });
 
   var restoredState = {};
   var completionCount = 0;
 
   storage.getAllKeys(function (err, allKeys) {
     if (err) {
-      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error in storage.getAllKeys&#x27;);
+      if (process.env.NODE_ENV !== 'production') console.warn('redux-persist/getStoredState: Error in storage.getAllKeys');
       complete(err);
     }
 
@@ -373,8 +366,8 @@
     if (restoreCount === 0) complete(null, restoredState);
     keysToRestore.forEach(function (key) {
       storage.getItem(createStorageKey(key), function (err, serialized) {
-        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key
-:&#x27;, key, err);else restoredState[key] = rehydrate(key, serialized);
+        if (err &amp;&amp; process.env.NODE_ENV !== 'production') console.warn('redux-persist/getStoredState: Error restoring data for key
+:', key, err);else restoredState[key] = rehydrate(key, serialized);
         completionCount += 1;
         if (completionCount === restoreCount) complete(null, restoredState);
       });
@@ -390,7 +383,7 @@
         return transformer.out(subState, key);
       }, data);
     } catch (err) {
-      if (process.env.NODE_ENV !== &#x27;production&#x27;) console.warn(&#x27;redux-persist/getStoredState: Error restoring data for key:&#x27;, key
+      if (process.env.NODE_ENV !== 'production') console.warn('redux-persist/getStoredState: Error restoring data for key:', key
 , err);
     }
 
@@ -402,16 +395,16 @@
   }
 
   function passWhitelistBlacklist(key) {
-    if (whitelist &#x26;&#x26; whitelist.indexOf(key) === -1) return false;
+    if (whitelist &amp;&amp; whitelist.indexOf(key) === -1) return false;
     if (blacklist.indexOf(key) !== -1) return false;
     return true;
   }
 
   function createStorageKey(key) {
-    return &#x27;&#x27; + keyPrefix + key;
+    return '' + keyPrefix + key;
   }
 
-  if (typeof onComplete !== &#x27;function&#x27; &#x26;&#x26; !!Promise) {
+  if (typeof onComplete !== 'function' &amp;&amp; !!Promise) {
     return new Promise(function (resolve, reject) {
       onComplete = function onComplete(err, restoredState) {
         if (err) reject(err);else resolve(restoredState);
@@ -432,14 +425,14 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function persistStore(store) {
-  var config = arguments.length &#x3e; 1 &#x26;&#x26; arguments[1] !== undefined ? arguments[1] : {};
+  var config = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
   var onComplete = arguments[2];
 
   // defaults
   // @TODO remove shouldRestore
   var shouldRestore = !config.skipRestore;
-  if (process.env.NODE_ENV !== &#x27;production&#x27; &#x26;&#x26; config.skipRestore) console.warn(&#x27;redux-persist: config.skipRestore has been deprecated
-. If you want to skip restoration use `createPersistor` instead&#x27;);
+  if (process.env.NODE_ENV !== 'production' &amp;&amp; config.skipRestore) console.warn('redux-persist: config.skipRestore has been deprecated
+. If you want to skip restoration use `createPersistor` instead');
 
   var purgeKeys = null;
 
@@ -453,7 +446,7 @@
       (0, _getStoredState2.default)(config, function (err, restoredState) {
         // do not persist state for purgeKeys
         if (purgeKeys) {
-          if (purgeKeys === &#x27;*&#x27;) restoredState = {};else purgeKeys.forEach(function (key) {
+          if (purgeKeys === '*') restoredState = {};else purgeKeys.forEach(function (key) {
             return delete restoredState[key];
           });
         }
@@ -466,12 +459,12 @@
 
   function complete(err, restoredState) {
     persistor.resume();
-    onComplete &#x26;&#x26; onComplete(err, restoredState);
+    onComplete &amp;&amp; onComplete(err, restoredState);
   }
 
   return _extends({}, persistor, {
     purge: function purge(keys) {
-      purgeKeys = keys || &#x27;*&#x27;;
+      purgeKeys = keys || '*';
       return persistor.purge(keys);
     }
   });
@@ -493,16 +486,16 @@
   var keyPrefix = config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX;
 
   // basic validation
-  if (Array.isArray(config)) throw new Error(&#x27;redux-persist: purgeStoredState requires config as a first argument (found array).
-An array of keys is the optional second argument.&#x27;);
-  if (!storage) throw new Error(&#x27;redux-persist: config.storage required in purgeStoredState&#x27;);
+  if (Array.isArray(config)) throw new Error('redux-persist: purgeStoredState requires config as a first argument (found array).
+An array of keys is the optional second argument.');
+  if (!storage) throw new Error('redux-persist: config.storage required in purgeStoredState');
 
-  if (typeof keys === &#x27;undefined&#x27;) {
+  if (typeof keys === 'undefined') {
     // if keys is not defined, purge all keys
     return new Promise(function (resolve, reject) {
       storage.getAllKeys(function (err, allKeys) {
-        if (err &#x26;&#x26; process.env.NODE_ENV !== &#x27;production&#x27;) {
-          console.warn(&#x27;redux-persist: error during purgeStoredState in storage.getAllKeys&#x27;);
+        if (err &amp;&amp; process.env.NODE_ENV !== 'production') {
+          console.warn('redux-persist: error during purgeStoredState in storage.getAllKeys');
           reject(err);
         } else {
           resolve(purgeStoredState(config, allKeys.filter(function (key) {
@@ -516,7 +509,7 @@ An array of keys is the optional second argument.&#x27;);
   } else {
     // otherwise purge specified keys
     return Promise.all(keys.map(function (key) {
-      return storage.removeItem(&#x27;&#x27; + keyPrefix + key, warnIfRemoveError(key));
+      return storage.removeItem('' + keyPrefix + key, warnIfRemoveError(key));
     }));
   }
 }</pre></li>
@@ -534,3 +527,4 @@ An array of keys is the optional second argument.&#x27;);
     ]
 </div>
 </div>
+</body></html>
